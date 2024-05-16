@@ -1,25 +1,34 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import styled from 'styled-components';
+import GlobalStyles from './styles/GlobalStyles';
+import Sidebar from './components/Sidebar';
+import Header from './components/Header';
+import Dashboard from './components/Dashboard';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+const AppContainer = styled.div`
+  display: flex;
+  height: 100vh;
+
+  @media (max-width: 1200px) {
+    flex-direction: column;
+  }
+`;
+
+const MainContent = styled.div`
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+`;
+
+const App = () => (
+  <AppContainer>
+    <GlobalStyles />
+    <Sidebar />
+    <MainContent>
+      <Header />
+      <Dashboard />
+    </MainContent>
+  </AppContainer>
+);
 
 export default App;
